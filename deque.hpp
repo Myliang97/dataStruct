@@ -14,7 +14,6 @@ namespace liang{
             typedef T* iterator;
             iterator _begin;
             iterator _end;
-
         public:
             T front(){
                 return *_begin;
