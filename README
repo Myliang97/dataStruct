@@ -1,0 +1,19 @@
+liang 2019 vscode
+C++模板实现
+
+1.栈stack
+    实现接口:push、pop、size、top、emplace、empty
+2.队列queue
+    实现接口:push、pop、size、front、back、swap、empty
+3.双端队列deque
+    实现接口:push_back、push_front、pop_back、pop_front、
+    front、back、at、begin、end、empty
+4.pair
+    实现make_pair函数
+5.平衡二叉树ALV tree
+    insert、del、几种遍历方式
+    
+说明:
+    旨在更好地了解数据结构和C++stl的使用，实现了一些基本的接口。例如:栈的push、pop
+    队列的push、front、平衡二叉树的insert、delete等等。
+参考:stl、boost、严蔚敏版数据结构
