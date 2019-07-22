@@ -9,7 +9,7 @@ namespace liang{
         typedef unsigned int uint;
         template<typename Ty>
         struct Node{
-            valTy _val;
+            Ty _val;
             Node *left;
             Node *right;
             Node *parent;
