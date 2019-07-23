@@ -294,6 +294,14 @@ namespace liang{
                 updateHeight(root);
             }
         }
+        /* 销毁树，回收内存 */
+        void destroy(Node<valTy>*&root){
+            if(!root)return;
+            destroy(root->left);
+            destroy(root->right);
+            delete root;
+            root=NULL;
+        }
         /* 前序打印*/
         void preprint(Node<valTy>*root){
             if(!root)
@@ -344,6 +352,9 @@ namespace liang{
             }
             del(tree,val,who);
         }
+        void destroy(){
+             destroy(tree);
+        }
         void inprint(){
             inprint(tree);
         }
@@ -365,8 +376,6 @@ namespace liang{
                         que.push(_node->left);
                         que.push(_node->right);                       
                     }
-                    else
-                        std::cout<<-1<<" ";
                 }
                 std::cout<<"\n";
             }
