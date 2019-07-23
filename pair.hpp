@@ -22,11 +22,24 @@ namespace liang{
             iterator get(){
                 return _iter;
             }
-            pair<keyTy,valTy> &operator =(pair<keyTy,valTy> &_p){
-                this->first=_p->first;
-                this->second=_p->second;
+            pair<keyTy,valTy> &operator =(const pair<keyTy,valTy> &_pair){
+                this->first=_pair.first;
+                this->second=_pair.second;
                 return *this;
             }
+            bool operator >(const pair<keyTy,valTy>&_pair){
+                return this->first>_pair.first;
+            }
+            bool operator <(const pair<keyTy,valTy>&_pair){
+                return this->first<_pair.first;
+            }
+            bool operator ==(const pair<keyTy,valTy> &_pair){
+                return this->first==_pair.first;
+            }
+            bool operator !=(const pair<keyTy,valTy>&_pair){
+                return this->first!=_pair.first;
+            }
+
     };
     template<typename keyTy,typename valTy>
     pair<keyTy,valTy> make_pair(keyTy key,valTy val){
