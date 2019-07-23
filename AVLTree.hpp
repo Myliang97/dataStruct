@@ -172,13 +172,15 @@ namespace liang{
             root->right_height=height(root->right);
         }
         /*寻找某个节点 */
-        bool findNode(Node<valTy>*root,valTy val,Node<valTy>*&who){
+        bool findNode(Node<valTy>*&root,const valTy &val,Node<valTy>*&who){
             if(!root)return false;
+            //std::cout<<":"<<root->_val._pair.first<<" "<<val._pair.first<<":"<<std::endl;
             if(root->_val ==val){
                 who=root;
                 return true;
             }
-            return findNode(root->left,val,who)||findNode(root->right,val,who);
+            if(root->_val > val)return findNode(root->left,val,who);
+            else return findNode(root->right,val,who);
         }
         //找到节点右子树的最左子节点
         void rtreeleftest(Node<valTy>*root,Node<valTy>*&leftest){ 
@@ -351,6 +353,15 @@ namespace liang{
                 return;
             }
             del(tree,val,who);
+        }
+        /* 已在树上返回true反之false */
+        bool find(valTy &_val){
+            Node<valTy>*who=NULL;
+            if(findNode(tree,_val,who)){
+                _val=who->_val;
+                return true;
+            }
+            return false;
         }
         void destroy(){
              destroy(tree);
