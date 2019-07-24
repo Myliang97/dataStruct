@@ -356,7 +356,24 @@ namespace liang{
                 destroy(tree_root);
             }   
             void bfsprint(){
-
+                liang::queue<Node<_kTy,_vTy>*>que;
+                que.push(tree_root);
+                while(!que.empty()){
+                    uint size=que.size();
+                    while(size--){
+                        Node<_kTy,_vTy>*_n=que.front();
+                        que.pop();
+                        if(_n){
+                            std::cout<<_n->_val->_pair.first<<" ";
+                            que.push(_n->left);
+                            que.push(_n->right);
+                        }
+                        else{
+                            std::cout<<"nil"<<" ";
+                        }
+                    }
+                    std::cout<<"\n";
+                }
             }
             Node<_kTy,_vTy>*tree_root; 
             m_tree():tree_root(NULL){
@@ -431,6 +448,9 @@ namespace liang{
         pair<keyTy,valTy>* operator [](const uint index){
             if(index>=_size)return NULL;
             return _pairs[index];
+        }
+        void bfsprint(){
+            _tree.bfsprint();
         }
         void destroy(){
             _tree.destroy();
